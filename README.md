@@ -1,77 +1,77 @@
-🫁 Pneumonia Detection from Chest X-Ray Images
+🫁 Pneumonia Detection from Chest X-Ray Images using VGG16
 
-This project implements a deep learning model using VGG16 transfer learning to automatically detect pneumonia from chest X-ray images. The system uses a convolutional neural network trained on medical imaging data to classify X-rays as Normal or Pneumonia.
+This project implements a deep learning model using VGG16 transfer learning to automatically detect pneumonia from chest X-ray images. The model analyzes chest radiographs and classifies them as Normal or Pneumonia.
 
-The model was developed using TensorFlow and Keras, and deployed as an interactive Streamlit web application on Hugging Face Spaces, allowing users to upload chest X-ray images and receive real-time predictions.
+The system was developed using TensorFlow and Keras, with data preprocessing, augmentation, and model fine-tuning. The trained model was deployed as an interactive web application using Streamlit on Hugging Face Spaces, allowing users to upload X-ray images and receive predictions in real time.
 
 🚀 Features
 
 Deep learning model based on VGG16 transfer learning
 
-End-to-end pipeline for medical image classification
+Binary classification of chest X-ray images (Normal vs Pneumonia)
 
-Data preprocessing and augmentation for improved generalization
+Image preprocessing and normalization
 
-Achieved 88.6% accuracy on unseen test data
+Data augmentation to improve generalization
 
-Streamlit web interface for easy interaction
+88.6% test accuracy on unseen data
+
+Interactive Streamlit web application
 
 Cloud deployment on Hugging Face Spaces
 
 🧠 Model Architecture
 
-The model uses VGG16 as the base CNN with transfer learning.
+The model uses VGG16 as a pretrained convolutional base and adds custom classification layers.
 
-Steps used:
+Architecture Flow
+Input Image (96x96x3)
+        │
+     VGG16
+ (Pretrained CNN)
+        │
+      Flatten
+        │
+      Dense
+        │
+     Dropout
+        │
+      Dense
+        │
+   Sigmoid Output
 
-Load pretrained VGG16 convolutional base
-
-Freeze early layers to retain learned features
-
-Add custom classification layers
-
-Fine-tune the network for pneumonia classification
-
-Architecture:
-
-Input Image (96x96)
-       │
-   VGG16 Base
-       │
-    Flatten
-       │
-    Dense Layer
-       │
-    Dropout
-       │
- Sigmoid Output
-
-Output classes:
+Output Classes:
 
 Normal
 
 Pneumonia
 
-📊 Dataset
+📊 Model Performance
+Metric	Value
+Model	VGG16 Transfer Learning
+Task	Binary Image Classification
+Test Accuracy	88.6%
+Framework	TensorFlow / Keras
+📂 Dataset
 
-Dataset used:
+The model was trained using the Chest X-Ray Pneumonia Dataset.
 
-Chest X-Ray Images (Pneumonia)
+Dataset Source:
 
-It contains labeled chest X-ray images for:
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 
-Normal lungs
+The dataset contains labeled chest X-ray images categorized as Normal or Pneumonia.
 
-Pneumonia infections
-
-Dataset structure:
-
+Dataset Structure
 chest_xray
- ├── train
- │   ├── NORMAL
- │   └── PNEUMONIA
- ├── val
- └── test
+│
+├── train
+│   ├── NORMAL
+│   └── PNEUMONIA
+│
+├── val
+│
+└── test
 ⚙️ Technologies Used
 
 Python
@@ -84,43 +84,67 @@ NumPy
 
 Streamlit
 
-Hugging Face Spaces
-
 OpenCV
 
-🖥️ Web Application
+Matplotlib
 
-The trained model is deployed using Streamlit, allowing users to upload an X-ray image and receive predictions.
+Pillow
 
-Workflow:
-
-Upload chest X-ray
-
-Model preprocesses image
-
-AI predicts pneumonia probability
-
-Display diagnosis and confidence score
-
-📈 Model Performance
-Metric	Value
-Test Accuracy	88.6%
-Model	VGG16 Transfer Learning
-Task	Binary Classification
 📂 Project Structure
-pneumonia-detector
+pneumonia-detection-xray-vgg16
 │
 ├── app.py
-├── chest_xray_vgg16_model.h5
 ├── requirements.txt
+├── pneumonia_model_training.ipynb
 └── README.md
+💻 Installation
+
+Clone the repository:
+
+git clone https://github.com/yourusername/pneumonia-detection-xray-vgg16.git
+
+Navigate into the project folder:
+
+cd pneumonia-detection-xray-vgg16
+
+Install dependencies:
+
+pip install -r requirements.txt
+▶️ Running the Application
+
+Run the Streamlit app:
+
+streamlit run app.py
+
+The application will open in your browser where you can upload chest X-ray images and view predictions.
+
 🌐 Live Demo
 
-You can try the deployed application here:
+Try the deployed application here:
 
-Hugging Face Space:
+Hugging Face Space
+
 https://huggingface.co/spaces/yourusername/pneumonia-detector
 
+Upload a chest X-ray image to receive an AI-generated pneumonia prediction.
+
+📸 Application Interface
+
+(Add screenshot here after uploading one)
+
+Example:
+
+![App Screenshot](screenshots/demo.png)
 ⚠️ Disclaimer
 
-This project is intended for educational and research purposes only and should not be used as a substitute for professional medical diagnosis.
+This project is intended for educational and research purposes only.
+It should not be used as a substitute for professional medical diagnosis.
+
+👨‍💻 Author
+
+Developed by Vaibhav Sharma
+
+GitHub:
+https://github.com/vsharma142004
+
+⭐ If you found this project useful, consider giving it a star!
