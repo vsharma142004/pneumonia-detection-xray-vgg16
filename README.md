@@ -1,4 +1,4 @@
-🫁 Pneumonia Detection from Chest X-Ray Images
+#🫁 Pneumonia Detection from Chest X-Ray Images
 
 This project implements a deep learning model using VGG16 transfer learning to automatically detect pneumonia from chest X-ray images. The system uses a convolutional neural network trained on medical imaging data to classify X-rays as Normal or Pneumonia.
 
